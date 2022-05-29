@@ -30,5 +30,3 @@ def get_details_text():
                 except: pass
 
     return text
-
-get_details_text()
