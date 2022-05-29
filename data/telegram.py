@@ -11,6 +11,7 @@ def get_text():
                 data = json.load(f)
             except:
                 continue
+     
 
             for obj in data:
                 try:
@@ -51,7 +52,6 @@ def splitFile():
                 continue
 
             for i, obj in enumerate(data):
-                print(f.__sizeof__())
                 try:
                     if i < len(data) / 2:
                         file1.append(obj)
@@ -62,10 +62,9 @@ def splitFile():
                     pass
 
         with open(os.path.join(os.getcwd(), f'data/telegram/{filename}1.json'), 'w') as f:
-            for d in file1:
-                f.write(str(d))
+            f.write(json.dumps(file1))
 
         with open(os.path.join(os.getcwd(), f'data/telegram/{filename}2.json'), 'w') as f:
-            for d in file2:
-                f.write(str(d))
+            f.write(json.dumps(file1))
 
+text = get_text()
