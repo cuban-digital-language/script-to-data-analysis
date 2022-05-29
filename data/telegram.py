@@ -61,10 +61,11 @@ def splitFile():
                 except:
                     pass
 
-        with open(os.path.join(os.getcwd(), f'data/telegram/{filename}1.json'), 'w') as f:
+        with open(os.path.join(os.getcwd(), f'data/telegram/newData/{filename}1.json'), 'w') as f:
             f.write(json.dumps(file1))
 
-        with open(os.path.join(os.getcwd(), f'data/telegram/{filename}2.json'), 'w') as f:
+        with open(os.path.join(os.getcwd(), f'data/telegram/newData/{filename}2.json'), 'w') as f:
             f.write(json.dumps(file1))
 
-text = get_text()
+#text = get_text()
+splitFile()
