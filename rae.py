@@ -6,7 +6,7 @@ from pyrae import dle
 from time import sleep
 from redis import Redis
 import ast
-import data.twitter as cb
+import data.facebook as cb
 import sys
 
 
