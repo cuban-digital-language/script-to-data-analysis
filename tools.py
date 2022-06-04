@@ -7,3 +7,12 @@ def get_progressbar(N, name=""):
         widgets=[progressbar.Bar('#', '[', ']'),
                  name,
                  progressbar.Percentage()])
+
+def groupBy(_list, f =lambda x: x):
+    d = {}
+
+    for x in _list:
+        try: d[f(x)].append(x)
+        except: d[f(x)] = [x]
+    
+    return d

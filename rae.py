@@ -6,8 +6,9 @@ from pyrae import dle
 from time import sleep
 from redis import Redis
 import ast
-import data.facebook as cb
+from submodulos.data import tw as data
 import sys
+import os
 
 
 def count():
@@ -45,14 +46,14 @@ def find():
 
     for word, obj in get_word():
         pool.submit(fun, word, obj)
-        sleep(1)
+        sleep(60)
 
 
 def save():
 
     # import data.cubadebate as cb
 
-    text = cb.get_text()
+    text = data.get_text(f'{os.getcwd()}/submodulos/data/')
 
     word_db = WordDB(localhost='localhost', port=6379, db=2)
     nlp = SpacyCustomTokenizer()
@@ -61,6 +62,7 @@ def save():
     bar.start()
     count = 0
     for i, t in enumerate(text):
+        t, _ = t
         for token in nlp(t):
             if not token.natural_word():
                 continue
