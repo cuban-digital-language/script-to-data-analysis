@@ -46,7 +46,7 @@ def find():
 
     for word, obj in get_word():
         pool.submit(fun, word, obj)
-        sleep(60)
+        sleep(1)
 
 
 def save():
